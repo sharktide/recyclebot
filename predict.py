@@ -13,8 +13,8 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0' #Turns off OneDNN operations, which is
 CLASSES = ['Glass', 'Metal', 'Paperboard', 'Plastic-Polystyrene', 'Plastic-Regular']
 import tensorflow as tf
 
-ensemble1 = tf.keras.models.load_model("recyclebot.keras")
-ensemble2 = tf.keras.models.load_model("72-75.keras")
+ensemble1 = tf.keras.models.load_model("recyclebot.h5")
+ensemble2 = tf.keras.models.load_model("72-75.h5")
 
 
 
