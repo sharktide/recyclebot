@@ -13,6 +13,7 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0' #Turns off OneDNN operations, which is
 CLASSES = ['Glass', 'Metal', 'Paperboard', 'Plastic-Polystyrene', 'Plastic-Regular']
 import tensorflow as tf
 
+#Load Models
 ensemble1 = tf.keras.models.load_model("recyclebot.keras")
 ensemble2 = tf.keras.models.load_model("72-75.keras")
 
@@ -32,7 +33,7 @@ while True:
     
     check = 0
 
-
+    #Ask for Image to test
 
     test_image = cv2.resize(cv2.imread(input(f'''Path to image #{index} -- Please Replace Backslashes (\\) with forwardslashes (/) please!  
                                             -->''')),  (240, 240))
@@ -42,9 +43,8 @@ while True:
     print(test_image.shape)
 
     # Assign weights to each model
-    weight_1 = 0.70
-    weight_2 = 0.30
-
+    weight_1 = 0.50
+    weight_2 = 0.50
 
     # Get predictions (probabilities)
     preds_1 = ensemble1.predict(test_image)
